@@ -1,16 +1,20 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
-import { Link } from 'expo-router'
+import { useRouter } from 'expo-router'
 import React from 'react'
 
 export default function signin() {
+  const router = useRouter()
+
+  const handleSignIn = () => {
+    router.replace('(tabs)')
+  }
+
   return (
     <View style={styles.container}>
       <Text>Edit the signIn page</Text>
-      <Link href="./(tabs)" asChild>
-        <Pressable style={styles.button}>
-          <Text style={{color: "#fff"}}>Sign In</Text>
-        </Pressable>
-      </Link>
+      <Pressable style={styles.button} onPress={handleSignIn}>
+        <Text style={{color: "#fff"}}>Sign In</Text>
+      </Pressable>
     </View>
   )
 }
